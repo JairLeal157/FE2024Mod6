@@ -10,9 +10,12 @@ import java.util.List;
 @Entity
 public class SeatStatus {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Enumerated(EnumType.STRING)
     private Status status;
+
     @JsonIgnore
     @OneToMany(cascade=CascadeType.PERSIST, mappedBy="seatStatus")
     private List<Seat> seats;

@@ -11,7 +11,9 @@ import java.util.List;
 @Entity
 public class SeatClass {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Enumerated(EnumType.STRING)
     private Type type;
 

@@ -38,6 +38,7 @@ public class SeatController {
     public Iterable<Seat> generateSeats(@RequestParam String nSeats) {
         return generateSeats.createSeats(Integer.parseInt(nSeats));
     }
+
     
 
 
