@@ -6,7 +6,8 @@ import jakarta.persistence.*;
 public class Seat {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ")
+    @SequenceGenerator(name = "SEQ", sequenceName = "SEAT_SEQ", allocationSize = 1)
     private Long id;
 
     @ManyToOne(cascade=CascadeType.PERSIST)

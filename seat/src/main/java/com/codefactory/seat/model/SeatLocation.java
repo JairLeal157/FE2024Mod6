@@ -11,9 +11,7 @@ import java.util.List;
 @Entity
 public class SeatLocation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Enumerated(EnumType.STRING)
     private Location location;
 
@@ -48,4 +46,6 @@ public class SeatLocation {
     public enum Location {
         WINDOW, CENTER, AISLE
     }
+
+
 }

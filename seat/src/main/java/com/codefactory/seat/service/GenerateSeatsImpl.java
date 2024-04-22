@@ -47,6 +47,7 @@ public class GenerateSeatsImpl implements IGenerateSeats{
         int countSeatClass1 = (int) (0.7 * nSeats);
 		int countSeatClass2 = (int) (0.15 * nSeats);
 		int countSeatClass3 = nSeats-countSeatClass1-countSeatClass2;
+        System.out.println(countSeatClass1 + countSeatClass2 + countSeatClass3);
 
         //Asignamos las distribuciones de posición del asiento, 33% para cada clase
         int countWindow = (int) (0.33 * countSeatClass1);
@@ -84,11 +85,11 @@ public class GenerateSeatsImpl implements IGenerateSeats{
         for (int i = 0; i < countSeatClass2; i++) {
             SeatClass seatClass = seatClass2;
             SeatStatus seatStatus = seatStatus1;
-            SeatLocation seatType; 
+            SeatLocation seatType;
             String seatLabel;
             int price;
-			int countWindow2 = (int) (0.33 * countSeatClass2); 
-        	int countCenter2 = (int) (0.33 * countSeatClass2); 
+			int countWindow2 = (int) (0.33 * countSeatClass2);
+        	int countCenter2 = (int) (0.33 * countSeatClass2);
 
 			if (i <= countWindow2){
 				seatType = window;
@@ -116,11 +117,11 @@ public class GenerateSeatsImpl implements IGenerateSeats{
         for (int i = 0; i < countSeatClass3; i++) {
             SeatClass seatClass = seatClass3;
             SeatStatus seatStatus = seatStatus1;
-            SeatLocation seatType; 
+            SeatLocation seatType;
             String seatLabel;
             int price;
-			int countWindow3 = (int) (0.33 * countSeatClass3); 
-        	int countCenter3 = (int) (0.33 * countSeatClass3); 
+			int countWindow3 = (int) (0.33 * countSeatClass3);
+        	int countCenter3 = (int) (0.33 * countSeatClass3);
 
 			if (i <= countWindow3){
 				seatType = window;
@@ -142,7 +143,8 @@ public class GenerateSeatsImpl implements IGenerateSeats{
 
 			seatClassCounter++;
         }
-
+        seats.stream().map(seat -> seat.toString()).forEach(System.out::println);
+        Seat seat = seats.get(0);
         return seatRepository.saveAll(seats);
     }
 }
